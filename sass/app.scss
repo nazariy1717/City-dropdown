@@ -1,0 +1,70 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+    font-size: 14px;
+    color: #576366;
+    background-color: #f3f3f3;
+}
+
+.app{
+	position: relative;
+	max-width: 500px;
+	margin: 100px auto;
+	&__title{
+		font-size: 30px;
+		font-weight: bold;
+		text-align: center;
+		letter-spacing: 1px;
+		margin-bottom: 30px;
+	}
+}
+
+.dropdown{
+	position: relative;
+
+	&__label{
+		width: 100%;
+		height: 45px;
+		background-color: white;
+		font-size: 22px;
+		line-height: 45px;
+		padding: 0 15px;
+		border: 1px solid #ececec;
+		cursor: pointer; 
+	}
+	&__list{
+		position: absolute;
+	    left: 0;
+	    right: 0;
+	    top: 115px;
+		box-shadow: 6px 10px 17px 0 rgba(0,0,0,.2);
+		background-color: white;
+	}
+	&__input{
+	    width: 470px;
+		height: 35px;
+	    display: block;
+		margin: 30px auto;
+		padding: 0 15px; 
+	    border-radius: 20px;
+	    border: 1px solid #c3c3c3;
+		outline: none;
+	}
+}
+
+.list{
+	list-style-type: none; 
+	padding-bottom: 30px;
+	&__item{
+		cursor: pointer;
+		font-size: 16px;
+		padding: 10px 15px;
+		border-bottom: 1px solid #ececec;
+	}	
+}
