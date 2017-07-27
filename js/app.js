@@ -1,33 +1,23 @@
 var dropDown = {
 
-
     cityArray: LIST,
     cityList: document.querySelector('.list'),
+    dropDown_b: document.querySelector('.dropdown'),
     dropList: document.querySelector('.dropdown__list'),
     label: document.querySelector('.dropdown__label'),
     lies: document.getElementsByClassName('list__item'),
 
     removePopulation: function () {
 
-        // function toFilter(value){
-        //     return value.population < 1000000;
-        // }
-        //
-        // dropDown.cityArray.filter(toFilter);
-
         for (var key in this.cityArray) {
             if (this.cityArray[key].population < 1000000) {
                 this.cityArray.splice(key, 1);
             }
         }
-
-        // console.log(dropDown.cityArray);
         return this.cityArray;
-
     },
 
     writeList: function (array, clear) {
-        console.log(array);
         if (clear) {
             this.cityList.innerHTML = '';
         }
@@ -42,9 +32,7 @@ var dropDown = {
             }
         } else {
             this.cityList.insertAdjacentHTML('beforeend', '<li class="list__item">Not Found</li>');
-
         }
-
     },
 
     sortCity: function (cityValue) {
@@ -61,7 +49,6 @@ var dropDown = {
             }
         }
         arr.sort(function (a, b) {
-            console.log(a, b);
             a = a.city.substring(0, cityValue.length).toLowerCase();
             b = b.city.substring(0, cityValue.length).toLowerCase();
             if ((a == cityValue && b != cityValue)) {
@@ -76,7 +63,6 @@ var dropDown = {
     },
 
     setCity: function (element) {
-        console.log(dropDown.lies);
 
         var active = document.querySelector('.list .active');
 
@@ -84,13 +70,10 @@ var dropDown = {
             active.classList.remove('active');
         }
 
-
         element.classList.add('active');
         var index = element.getAttribute('data-city');
-        console.log(index);
         this.label.innerHTML = index;
     },
-
 
     init: function () {
         this.removePopulation();
@@ -98,20 +81,17 @@ var dropDown = {
         this.events();
     },
 
-
     events: function (element) {
 
         dropDown.label.onclick = function () {
-            dropDown.dropList.classList.toggle('is-visible');
+            dropDown.dropDown_b.classList.toggle('is-visible');
+            document.querySelector('.dropdown__input').value = '';
+            dropDown.writeList(dropDown.cityArray, true);
         };
-
 
         document.querySelector('.dropdown__input').onkeyup = function () {
             dropDown.sortCity(this.value);
         };
-
-
-
 
     }
 
